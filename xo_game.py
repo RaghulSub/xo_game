@@ -8,12 +8,12 @@ board = [' ',' ',' ',
 
 co = [False]*9         # it tracks position of X and O
 
-co_player_O = [False]*9
+co_player_O = [False]*9      # it tracks position of O's
 
-co_player_X = [False]*9
+co_player_X = [False]*9      # it tracks position of X's
 
 
-def print_board():
+def print_board():                           # it print the interface
     
     print("\t\tTIC TAC TOE\n\n")
     print('\t\t\t\t','0 |','1 |','2')
@@ -28,7 +28,7 @@ def print_board():
     print(" -----------")
     print(' ',board[6],'|',board[7],'|',board[8])
     
-def condition_O():       #this is used to check that user O is occupied the position and also to check user O is win or not
+def condition_O():       #this is used to check that user O is is win or not
     
     is_win = False
     if co_player_O[0] and co_player_O[1] and co_player_O[2]:
@@ -46,12 +46,12 @@ def condition_O():       #this is used to check that user O is occupied the posi
         
     if is_win:
         print("\n!!!  Player 1 won the game  !!!")
-        return True
-    return False
+        return True                        # if it is true the break statement gonna execute
+    return False              # if it is false the break statement won't execute
         
     
    
-def condition_X():       #this is used to check that user O is occupied the position and also to check user O is win or not
+def condition_X():       #this is used to check that user X is win or not
     
     is_win = False
     if co_player_X[0] and co_player_X[1] and co_player_X[2]:
@@ -69,8 +69,8 @@ def condition_X():       #this is used to check that user O is occupied the posi
         
     if is_win:
         print("\n!!!  Player 2 won the game  !!!")
-        return True
-    return False
+        return True                     # if it is true the break statement gonna execute
+    return False           # if it is false the break statement won't execute
     
 
     
@@ -92,8 +92,7 @@ def input_board_player_X():     #this is used to take input from user2
     
     
 while(True):
-    os.system('cls')
-    
+    is_end = False
     print_board()
     input_board_player_O()
     if condition_O():
@@ -103,3 +102,11 @@ while(True):
     input_board_player_X()
     if condition_X():
         break
+             
+    for i in range(9):
+        if board[i] == ' ':
+            is_end = True
+    if is_end:
+        print("\n!!!  Its a Draw  !!!")
+        break
+             
