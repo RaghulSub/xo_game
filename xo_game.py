@@ -121,7 +121,7 @@ while(True):
     print_board()
     input_board_player_X()
     if condition_X():
-        break
+        break               # This condition is to check whether all the box are filled or not
     
 
     
