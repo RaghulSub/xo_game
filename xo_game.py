@@ -121,7 +121,7 @@ while(True):
     print_board()
     input_board_player_X()
     if condition_X():
-        break                    #here is to check
+        break
     
 
     
